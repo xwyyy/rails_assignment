@@ -1,0 +1,23 @@
+<h1>Meals Starting With "<%= params[:letter] || "a" %>"</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Meal Name</th>
+      <th>Category</th>
+      <th>Area</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @meals.each do |meal| %>
+      <tr>
+        <td>
+          <%= link_to meal["strMeal"], meal_path(meal["idMeal"]) %>
+        </td>
+        <td><%= meal["strCategory"] %></td>
+        <td><%= meal["strArea"] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

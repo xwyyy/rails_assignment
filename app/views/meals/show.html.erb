@@ -1,0 +1,21 @@
+<% if @meal.present? %>
+
+  <h1><%= @meal["strMeal"] %></h1>
+
+  <img src="<%= @meal["strMealThumb"] %>"
+       alt="<%= @meal["strMeal"] %>"
+       width="400">
+
+  <p><strong>Category:</strong> <%= @meal["strCategory"] %></p>
+  <p><strong>Area:</strong> <%= @meal["strArea"] %></p>
+  <p><strong>Tags:</strong> <%= @meal["strTags"] %></p>
+
+  <h2>Instructions</h2>
+  <p><%= simple_format(@meal["strInstructions"]) %></p>
+
+  <br>
+  <%= link_to "Back to List", meals_path(letter: params[:letter] || "a") %>
+
+<% else %>
+  <p>Meal not found.</p>
+<% end %>
